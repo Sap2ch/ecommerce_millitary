@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    height: 100vh;
+    background: url(download.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2%;
+    box-shadow: 0 5px 10px #000;
+}
+
+header .logo {
+    font-size: 20px;
+    font-weight: 900;
+    color: #000;
+}
+
+
+header nav ul li {
+    position: relative;
+    float: left;
+}
+
+header nav ul li a {
+    padding: 15px;
+    color: #000;
+    font-size: 16px;
+    display: block;
+}
+
+/* header nav ul li a:hover {
+    background: #000;
+    color: white;
+} */
+
+/* Це розмір сітки випадаючого списку */
+nav ul li ul {
+    position: absolute;
+    left: 0;
+    width: 100px;      /* змінено з 180 px */
+    background: white;
+    display: none;
+
+}
+
+nav ul li ul li {
+    width: 100%;
+    border: 1px solid rgb(0, 0, 0, .1);
+}
+
+nav ul li ul li ul {
+    left: 180px;
+    top: 0;
+}
+
+nav ul li:hover > ul {
+    display: initial;
+}
+
+.categories li a:hover {
+    background: #000;
+    color: white;
+}
+
+.message {
+    text-align: center;
+}
+
+.register, .login-form {
+    display: flex;
+    color: aliceblue;
+    line-height: 1.5;
+    justify-content: center;  /* Горизонтальное центрирование */
+    align-items: center;      /* Вертикальное центрирование */
+    height: 100%;              /* Высота родителя — 100% высоты окна */
+}
+
+.welcome, .pistols, .rifles, .shotguns, .about-title {
+    margin-top: 100px;
+    height: 20%;
+    width: 100%;
+    color: white;
+}
+
+.about-index {
+    width: 250px; /* ширина тексту на повноекранному режимі (десктоп) */
+    word-wrap: break-word;
+    margin-left: 5px;
+    color: rgb(237, 234, 230);
+}
+
+.pistols, .rifles, .shotguns h1, h2 {
+    color: rgb(237, 234, 230);
+}
+
+/* /about/ */
+.about-text h1 {
+    margin-bottom: 15px; /* відступ між заголовком та текстом */
+}
+
+.about-text h2 {
+    margin-left: 15px;
+    margin-right: 15px;
+    color: rgb(237, 234, 230);
+}
+
+/* /login/ */
+/* .register-about {
+    color: red;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 200px;
+} */
+
+.login-form {
+    text-align: center;
+}
+
+.login-button {
+    width: 60px;  /* Устанавливает ширину кнопки */
+    height: 25px;  /* Устанавливает высоту кнопки */
+    margin-top: 10px;
+}
+
+.register-about {
+    margin-top: -270px;
+    text-align: center;
+    font-size: 18px;
+    color: rgb(237, 234, 230);
+}
+
+.add-product {
+    text-align: center;
+    margin-top: 120px;
+}
+
+.add-product-label {
+    color: rgb(212, 239, 236);
+}
+
+.not-add-product {
+    color: rgb(250, 250, 250);
+    text-align: center;
+    margin-top: 250px
+}
+
+/* LOGOUT */
+.logout-text {
+    text-align: center;
+    color: rgb(212, 239, 236);
+    font-size: 32px;
+}
+
+.img-avatar {
+    width: 100%;
+    height: auto; /* Высота автоматически подстраивается */
+    max-width: 100%; 
+}
+
+.profile-card {
+    /* background-color: #2430d7;  Светло-серый фон */
+    background-color: rgb(72, 73, 75);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 350px;
+    margin: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .profile-card {
+      max-width: 70%; /* На экранах до 768px карточка будет занимать 100% ширины */
+      margin: 5px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .profile-card {
+      padding: 15px; /* Уменьшаем отступы на маленьких экранах */
+      max-width: 70%;  /* На экранах меньше 480px карточка будет занимать 90% ширины */
+    }
+}
+
+.profile-list li a:hover {
+    background: #000;
+    color: white;
+}
+
+/* Це випадаюче меню для профайла */
+nav ul li .profile-list {
+    position: absolute;
+    left: -22px;
+    width: 100px;      /* змінено з 180 px */
+    background: white;
+    display: none;
+}
+
+/* Відображення продукції на веб-сайті /products/ */
+.products b {
+    color: aliceblue;
+}
+
+.products-img {
+    width: 70%;
+    height: auto; 
+    max-width: 70%; 
+}

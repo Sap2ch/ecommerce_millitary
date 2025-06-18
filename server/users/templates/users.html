@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1 style="text-align: center; margin-top: 100px;">Hello, world!</h1>
+    {% for user in profiles %}
+        <div class="profile-card">
+            <h2><b><a href="{% url 'profile' slug=user.user.username %}">{{ user.user.username }}</a></b></h2>
+            <h2><b>Seller: </b>{{ user.user.first_name }} {{ user.user.last_name }}</h2>
+            <h2><b>Email: </b>{{ user.user.email }}</h2>
+            <h2><b>Date: </b>{{ user.user.date_joined }}</h2>
+            <h2><b>State: </b>{{ user.state }}</h2>
+            <h2><b>Phone: </b>{{ user.phone_number }}</h2>
+            <h2><b>Status: </b>{{ user.status }}</h2>
+        </div>
+    <h2>{{ profile }}</h2>
+    {% endfor %}
+
+{% endblock %}
+

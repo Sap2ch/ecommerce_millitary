@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="login-form">
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label class="text-primary text-dark font-weight-bold">Enter Username</label>
+            <input type="text" class="form-control" name="username" placeholder="Enter Username">
+        </div>
+    
+        <br>
+        <div class="form-group">
+            <label class="text-primary text-dark font-weight-bold">Enter Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Enter Password">
+        </div>
+
+        <button type="submit" class="login-button">Log in</button>
+    </form>
+</div>
+
+<p class="register-about">Якщо у Вас ще немає профілю, то Ви можете зареєструватись по посиланню: <a href="{% url 'register' %}">Register</a></p>
+
+
+{% endblock %}

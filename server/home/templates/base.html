@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="{% static 'css/styles.css' %}" rel="stylesheet">
+    
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        body {
+            /* Используем изображение как фон */
+            background: url("{% static 'media/download.jpg' %}") no-repeat center center fixed;
+            background-size: cover; 
+            /* background-color: grey;
+            background-size: cover; */
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+
+        <!-- <a href="#" class="logo">Logo</a> -->
+        <p><a href="{% url 'home' %}"><img src="{% static 'media/logo.png' %}" width="120" 
+            height="60" class="logo"></a></p>
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <!-- <li><a href="#">Categories &bigtriangledown;</a> -->
+                <li><a href="">Categories</a>
+                    <ul class="categories">
+                        <li><a href="#">Pistols</a></li>
+                        <li><a href="#">Rifles</a></li>
+                        <li><a href="#">Shotguns</a></li>
+                        <li><a href="{% url 'ammo' %}">Ammo</a></li>
+                        <li><a href="#">Specials</a></li>
+                        <li><a href="#">Services</a></li>
+                    </ul>
+                <!-- <li><a href="#">Contacts</a></li> -->
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'profile' slug=user.username %}"><img src="{% static 'media/home.png' %}" width="20" height="20" class="home" alt=""></a>
+                        <ul class="profile-list">
+                            <li><a href="{% url 'products' %}">All products</a></li>
+                            <li><a href="{% url 'my-products' %}">My products</a></li>
+                            <li><a href="{% url 'create-products' %}">Create products </a></li>
+                            <li><a href="{% url 'ffl' %}">FFL</a></li>
+                            <li><a href="{% url 'users' %}">All users</a></li>
+                            <li><a href="{% url 'logout' %}">Log out</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li><a href="{% url 'login' %}"><img src="{% static 'media/login.png' %}" width="20" height="20" class="home" alt=""></a></li>
+                {% endif %}
+                <!-- <li><a href="#"><img src="logo.png" alt="" width="120" height="60" class="logo"></a></li> -->
+            </ul>
+            
+        </nav>
+    </header>
+    {% block content %}{% endblock %}
+
+</body>
+</html>

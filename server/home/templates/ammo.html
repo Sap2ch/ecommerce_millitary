@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="pistols">
+        <h1 style="text-align: center;">Pistols</h1>
+        <h2><a href="{% static 'ammo_img/parabellum.jpg' %}">9x19mm Parabellum</a></h2>
+        <h2><a href="{% static 'ammo_img/9x18PM.jpg' %}">9x18 PM</a></h2>
+        <h2><a href="{% static 'ammo_img/10mm_Auto.jpg' %}">10 mm Auto</a></h2>
+        <h2><a href="{% static 'ammo_img/22_Long_Rifle.jpg' %}">22mm Long Rifle</a></h2>
+        <h2><a href="{% static 'ammo_img/40SW.jpg' %}">.40 S&W</a></h2>
+        <h2><a href="{% static 'ammo_img/45ACP.jpg' %}">.45 ACP</a></h2>
+        <h2><a href="{% static 'ammo_img/357Magnum.jpg' %}">357 Magnum</a></h2>
+    </div>
+
+    <div class="rifles">
+        <h1 style="text-align: center;">Rifles</h1>
+    </div>
+
+    <div class="shotguns">
+        <h1 style="text-align: center;">Shotguns</h1>
+    </div>
+{% endblock %}

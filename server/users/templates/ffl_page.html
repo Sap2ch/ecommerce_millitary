@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if request.user.is_authenticated and not user_ffl %}
+    <h1 style="text-align: center; margin-top: 100px;">Hello, world!</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }} 
+        <button type="submit">Отправить</button>
+    </form>
+    {% else %}
+        <h1 style="text-align: center; margin-top: 100px;">You send verify FFL-license</h1>
+        <a href="{{ user_ffl.image.url }}" target="_blank">
+            <img style="width: 100px; height: 100px;" src="{{ user_ffl.image.url }}" alt="">
+        </a>
+        <!-- <img style="width: 100px; height: 100px;" src="{{ user_ffl.image.url }}" alt=""> -->
+    {% endif %}
+{% endblock %}

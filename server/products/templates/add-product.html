@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<form class="add-product" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+        <div>
+            {{ field.errors }}
+            <p class="add-product-label">{{ field.label_tag }} {{ field }}</p>
+        </div>
+    {% endfor %}
+    <button type="submit">Publish</button>
+</form>
+{% endif %}
+<h1 class="not-add-product">Please, login!</h1>
+{% endblock %}

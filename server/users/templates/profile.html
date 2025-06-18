@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="text-align: center; margin-top: 350px;">Hello, {{ profile.user.username }}!</h1>
+
+    <div class="profile-card">
+        <h2><b>Seller: </b>{{ profile.user.first_name }} {{ profile.user.last_name }}</h2>
+        <h2><b>Email: </b>{{ profile.user.email }}</h2>
+        <h2><b>Date: </b>{{ profile.user.date_joined }}</h2>
+        <h2><b>State: </b>{{ profile.state }}</h2>
+        <h2><b>Phone: </b>{{ profile.phone_number }}</h2>
+        <h2><b>Status: </b>{{ profile.status }}</h2>
+    </div>
+    
+    {% if request.user.username|lower == slug|lower %}
+        <h2 class="logout-text"><a href="{% url 'logout' %}">Logout</a></h2>
+        <h2>Verify FFL-license: <a href="{% url 'ffl' %}">FFL</a></h2>
+    {% endif %}
+    <!-- <img class="img-avatar" src="{{ profile.avatar.url }}" alt="" style="width: 100px; height: 100px;"> -->
+    
+{% endblock %}

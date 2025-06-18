@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="text-align: center; margin-top: 100px">My products</h1>
+    {% if products %}
+    <div class="products">
+        {% for product in products %}
+            <p>Title: <b>{{ product.title }}</b></p>
+            <p>Description: <b>{{ product.description }}</b></p>
+            <p>Type gun: <b>{{ product.type_gun }}</b></p>
+            <p>Caliber: <b>{{ product.caliber }}</b></p>
+            <p>State: <b>{{ product.state }}</b></p>
+            <p>Phone: <b>{{ product.phone }}</b></p>
+            <p>Payload methods: <b>{{ product.payload_methods }}</b></p>
+            <p>Price: <b>{{ product.price }}$</b></p>
+            <a href="{{ product.image.url }}"><img class="products-img" src="{{ product.image.url }}" alt="_blank" ></a>
+            <p>Seller: <a href="{% url 'profile' slug=product.user.username %}">{{ product.user.username }}</a><b></b></p>
+            <p>URL: <a href="{% url 'show-products' slug=product.slug %}">{{ product.slug }}</a><b></b></p>
+        {% endfor %}
+    {% else %}
+        <h1>You don't have products!</h1>
+    {% endif %}
+    </div>
+{% endblock %}
